@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './App.css'
-import getWeatherData from './data/weatherapi'
+import axios from 'axios'
 
 function App () {
   const [city, setCity] = useState('')
-  const [weatherData, setWeatherData] = useState({})
+  const [weatherData, setWeatherData] = useState(null)
+  // const baseUrl = 'http://api.openweathermap.org/data/2.5/forecast?'
+  const baseUrl = 'http://api.openweathermap.org/data/2.5/weather?'
+  const key = '3e476e4566d14c0ea211850072dcb2d9'
 
-  const getData = async () => {
+  const getData = async city => {
     try {
-      const data = await getWeatherData(city)
-      setWeatherData(data)
-      console.log(data)
+      const response = await axios.get(
+        baseUrl + `q=${city}&units=metric&appid=${key}`
+      )
+      setWeatherData(response.data)
     } catch (error) {
-      console.log(error.message)
+      console.log('ERROR:', error.message)
     }
   }
-
-  useEffect(() => {
-    getData()
-  }, [])
 
   return (
     <div className='App'>
@@ -30,7 +30,7 @@ function App () {
             onChange={e => setCity(e.target.value)}
             placeholder='Enter city name'
           />
-          <button type='button' onClick={() => getData()}>
+          <button type='button' onClick={() => getData(city)}>
             Search
           </button>
         </div>
@@ -54,8 +54,8 @@ function App () {
             </div>
             <div className='temperature=-range'>
               <h6>
-                Min: {weatherData.main.temp_min}&deg;C || Max:{' '}
-                {weatherData.main.temp_max}&deg;C || Humidity:{' '}
+                Min: {weatherData.main.temp_min}&deg;C &nbsp;Max:{' '}
+                {weatherData.main.temp_max}&deg;C &nbsp; Humidity:{' '}
                 {weatherData.main.humidity}%{' '}
               </h6>
             </div>
