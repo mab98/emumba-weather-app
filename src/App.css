@@ -1,7 +1,8 @@
-.App {
-  text-align: center;
+button {
+  cursor: pointer;
 }
 
-button{
-cursor: pointer;
+main {
+  margin: 0 20%;
+  /* text-align: center; */
 }
