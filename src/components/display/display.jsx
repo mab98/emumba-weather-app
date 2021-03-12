@@ -42,12 +42,9 @@ const Display = ({ weatherData }) => {
               <button onClick={() => setUnit('F')}>F</button>
             </p>
             <div className='container3'>
-              <p>Min: {weatherData.list[0].main.temp_min}&deg;C</p>
-              <p>
-                Max:
-                {weatherData.list[0].main.temp_max}&deg;C &nbsp;
-              </p>
+              <p>Pressure: {weatherData.list[0].main.pressure} hPa</p>
               <p>Humidity: {weatherData.list[0].main.humidity}%</p>
+              <p>Wind Speed: {weatherData.list[0].wind.speed} m/s</p>
             </div>
           </div>
         </div>
