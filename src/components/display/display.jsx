@@ -31,7 +31,7 @@ const Display = ({ weatherData }) => {
             />
             <p>
               <span className='temperature'>
-                {unit == 'C'
+                {unit === 'C'
                   ? weatherData.list[0].main.temp
                   : cToF(weatherData.list[0].main.temp)}
               </span>

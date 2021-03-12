@@ -6,15 +6,11 @@ import './App.css'
 import Header from './components/header/header'
 import Search from './components/search/search'
 import Display from './components/display/display'
+import Card from './components/card/card'
 
 const App = () => {
   const [city, setCity] = useState('')
   const [weatherData, setWeatherData] = useState(null)
-
-  // const [selectedOption, setSelectedOption] = useState(null)
-  // const handleOption = async selectedOption => {
-  //   setSelectedOption(selectedOption)
-  // }
 
   const getData = async city => {
     const baseUrl = 'http://api.openweathermap.org/data/2.5/forecast?'
@@ -34,14 +30,15 @@ const App = () => {
     <div>
       <Header text='Weather Forecast (5 days)' />
       <main>
-        <Search
-          // selectedOption={selectedOption}
-          // handleOption={handleOption}
-          city={city}
-          setCity={setCity}
-          getData={getData}
-        />
+        <Search city={city} setCity={setCity} getData={getData} />
         <Display weatherData={weatherData} />
+        <div className='cards-container'>
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
       </main>
     </div>
   )

@@ -4,5 +4,8 @@ button {
 
 main {
   margin: 0 20%;
-  /* text-align: center; */
+}
+
+.cards-container {
+  display: flex;
 }
