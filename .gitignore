@@ -22,6 +22,3 @@ yarn-debug.log*
 yarn-error.log*
 
 /zNotes
-/zApp copy.js
-/zJson.json
-/zjson.json

@@ -6,9 +6,6 @@
 .container1,
 .container2,
 .container3 {
-  padding: 0;
-  margin: 0;
-  /* border: 1px solid tomato; */
   line-height: 0.3;
   font-size: 20px;
 }
