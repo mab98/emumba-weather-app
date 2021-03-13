@@ -8,7 +8,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const element = <FontAwesomeIcon icon={faSearch} />
 
-const Search = ({ city, setCity, setWeatherData }) => {
+export const Search = ({ city, setCity, setWeatherData }) => {
   const [option, setOption] = useState('')
 
   const handleChange = event => {
@@ -66,5 +66,3 @@ const Search = ({ city, setCity, setWeatherData }) => {
     </div>
   )
 }
-
-export default Search

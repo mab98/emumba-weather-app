@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './display.css'
+
 const getDayName = dateStr => {
   var date = new Date(dateStr)
   return date.toLocaleDateString('en-US', { weekday: 'long' })
@@ -10,47 +11,46 @@ const cToF = celsius => {
   return ((cTemp * 9) / 5 + 32).toFixed(2)
 }
 
-const Display = ({ weatherData }) => {
+export const Display = ({ location, weatherDay }) => {
   const [unit, setUnit] = useState('C')
   return (
-    <div>
-      {weatherData !== null ? (
-        <div className='main-container'>
-          <div className='container1'>
-            <p className='location'>
-              {weatherData.city.name}, {weatherData.city.country}
-            </p>
-            <p>{getDayName(weatherData.list[0].dt_txt.split(' ')[0])}</p>
-            <p>{weatherData.list[0].weather[0].main}</p>
-          </div>
-          <div className='container2'>
-            <img
-              className='weather-icon'
-              src={`https://openweathermap.org/img/w/${weatherData.list[0].weather[0].icon}.png`}
-              alt='weather logo'
-            />
-            <p>
-              <span className='temperature'>
-                {unit === 'C'
-                  ? weatherData.list[0].main.temp
-                  : cToF(weatherData.list[0].main.temp)}
-              </span>
-            </p>
+    <div className='main-container'>
+      <div className='container1'>
+        <p className='location'>{location}</p>
+        <p>{getDayName(weatherDay.dt_txt.split(' ')[0])}</p>
+        <p>{weatherDay.weather[0].main}</p>
+      </div>
+      <div className='container2'>
+        <img
+          className='weather-icon'
+          src={`https://openweathermap.org/img/w/${weatherDay.weather[0].icon}.png`}
+          alt='weather logo'
+        />
+        <p>
+          <span className='temperature'>
+            {unit === 'C' ? weatherDay.main.temp : cToF(weatherDay.main.temp)}
+          </span>
+        </p>
 
-            <p className='temp-button'>
-              &deg;<button onClick={() => setUnit('C')}>C</button> | &deg;
-              <button onClick={() => setUnit('F')}>F</button>
-            </p>
-            <div className='container3'>
-              <p>Pressure: {weatherData.list[0].main.pressure} hPa</p>
-              <p>Humidity: {weatherData.list[0].main.humidity}%</p>
-              <p>Wind Speed: {weatherData.list[0].wind.speed} m/s</p>
-            </div>
-          </div>
+        <p className='temp-button'>
+          &deg;
+          <button id='temp-in-C' onClick={() => setUnit('C')}>
+            C
+          </button>{' '}
+          | &deg;
+          <button id='temp-in-F' onClick={() => setUnit('F')}>
+            F
+          </button>
+          {/* {document
+                .getElementById(`temp-in-${unit}`)
+                .setAttribute('className', 'temp-selected')} */}
+        </p>
+        <div className='container3'>
+          <p>Pressure: {weatherDay.main.pressure} hPa</p>
+          <p>Humidity: {weatherDay.main.humidity}%</p>
+          <p>Wind Speed: {weatherDay.wind.speed} m/s</p>
         </div>
-      ) : null}
+      </div>
     </div>
   )
 }
-
-export default Display
