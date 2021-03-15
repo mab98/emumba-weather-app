@@ -14,11 +14,20 @@ const App = () => {
   const [location, setLocation] = useState(null)
   const [weatherDay, setWeatherDay] = useState(null)
 
+  const [selected, setSelected] = useState(0)
+
   return (
     <div>
       <Header text='Weather Forecast (5 days)' />
       <main>
-        <Search city={city} setCity={setCity} setWeatherData={setWeatherData} />
+        <Search
+          city={city}
+          setCity={setCity}
+          setWeatherData={setWeatherData}
+          setLocation={setLocation}
+          setWeatherDay={setWeatherDay}
+          setSelected={setSelected}
+        />
         {location !== null && weatherDay !== null ? (
           <Display location={location} weatherDay={weatherDay} />
         ) : null}
@@ -27,6 +36,8 @@ const App = () => {
             weatherData={weatherData}
             setLocation={setLocation}
             setWeatherDay={setWeatherDay}
+            selected={selected}
+            setSelected={setSelected}
           />
         ) : null}
       </main>

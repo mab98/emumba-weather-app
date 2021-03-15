@@ -1,14 +1,20 @@
 import './search.css'
 import React, { useState } from 'react'
 import axios from 'axios'
-import NativeSelect from '@material-ui/core/NativeSelect'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const element = <FontAwesomeIcon icon={faSearch} />
 
-export const Search = ({ city, setCity, setWeatherData }) => {
+export const Search = ({
+  city,
+  setCity,
+  setWeatherData,
+  setLocation,
+  setWeatherDay,
+  setSelected
+}) => {
   const [option, setOption] = useState('')
 
   const handleChange = event => {
@@ -28,8 +34,14 @@ export const Search = ({ city, setCity, setWeatherData }) => {
     }
     try {
       const response = await axios.get(baseUrl + route)
-      console.log(response.data)
-      setWeatherData(response.data)
+      let data = response.data
+      console.log(data)
+      setWeatherData(data)
+      setLocation(`${data.city.name}, ${data.city.country}`)
+      setWeatherDay(
+        data.list.filter(item => item.dt_txt.includes('12:00:00'))[0]
+      )
+      setSelected(0)
     } catch (error) {
       console.log('ERROR:', error.message)
     }
@@ -37,18 +49,14 @@ export const Search = ({ city, setCity, setWeatherData }) => {
 
   return (
     <div className='search-container'>
-      <NativeSelect
-        className='search-by'
-        value={option}
-        onChange={handleChange}
-      >
-        <option value='' disabled>
+      <select value={option} onChange={handleChange}>
+        <option className='invisible' value='' disabled>
           Search by
         </option>
         <option value='cityName'>City Name</option>
         <option value='cityId'>City Id</option>
         <option value='zipCode'>Zip Code</option>
-      </NativeSelect>
+      </select>
 
       <input
         type='text'

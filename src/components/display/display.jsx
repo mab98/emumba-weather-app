@@ -35,15 +35,20 @@ export const Display = ({ location, weatherDay }) => {
         <p className='temp-button'>
           &deg;
           <button id='temp-in-C' onClick={() => setUnit('C')}>
-            C
+            {unit === 'C' ? (
+              <span className='temp-selected'>C</span>
+            ) : (
+              <span>C</span>
+            )}
           </button>{' '}
           | &deg;
           <button id='temp-in-F' onClick={() => setUnit('F')}>
-            F
+            {unit === 'F' ? (
+              <span className='temp-selected'>F</span>
+            ) : (
+              <span>F</span>
+            )}
           </button>
-          {/* {document
-                .getElementById(`temp-in-${unit}`)
-                .setAttribute('className', 'temp-selected')} */}
         </p>
         <div className='container3'>
           <p>Pressure: {weatherDay.main.pressure} hPa</p>

@@ -1,12 +1,16 @@
 .card-container {
   text-align: center;
   width: 150px;
-  margin: 0;
-  padding: 0;
 }
 
-.card-container:hover {
+.card-container:hover,
+.card-selected {
   border: 1px solid gray;
   border-radius: 5px;
-  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 480px) {
+  .card-container {
+    width: 80px;
+  }
 }
