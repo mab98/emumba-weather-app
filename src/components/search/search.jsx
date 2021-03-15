@@ -23,7 +23,7 @@ export const Search = ({
 
   const getData = async city => {
     const key = '3e476e4566d14c0ea211850072dcb2d9'
-    const baseUrl = 'http://api.openweathermap.org/data/2.5/forecast?'
+    const baseUrl = 'https://api.openweathermap.org/data/2.5/forecast?'
     let route = ''
     if (option === 'cityName') {
       route = `q=${city}&units=metric&appid=${key}`

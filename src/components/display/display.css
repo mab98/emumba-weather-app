@@ -12,17 +12,10 @@
 .container2 {
   display: flex;
   align-items: center;
-  /* border: red 1px solid; */
   justify-content: space-around;
 }
 .container2a {
   display: flex;
-  /* align-items: center; */
-  /* border: red 1px solid; */
-}
-.container2b {
-  /* align-items: center; */
-  /* border: red 1px solid; */
 }
 
 img {
