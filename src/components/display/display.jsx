@@ -21,36 +21,38 @@ export const Display = ({ location, weatherDay }) => {
         <p>{weatherDay.weather[0].main}</p>
       </div>
       <div className='container2'>
-        <img
-          className='weather-icon'
-          src={`https://openweathermap.org/img/w/${weatherDay.weather[0].icon}.png`}
-          alt='weather logo'
-        />
-        <p>
-          <span className='temperature'>
-            {unit === 'C' ? weatherDay.main.temp : cToF(weatherDay.main.temp)}
-          </span>
-        </p>
+        <div className='container2a'>
+          <img
+            className='weather-icon'
+            src={`https://openweathermap.org/img/w/${weatherDay.weather[0].icon}.png`}
+            alt='weather logo'
+          />
+          <p>
+            <span className='temperature'>
+              {unit === 'C' ? weatherDay.main.temp : cToF(weatherDay.main.temp)}
+            </span>
+          </p>
 
-        <p className='temp-button'>
-          &deg;
-          <button id='temp-in-C' onClick={() => setUnit('C')}>
-            {unit === 'C' ? (
-              <span className='temp-selected'>C</span>
-            ) : (
-              <span>C</span>
-            )}
-          </button>{' '}
-          | &deg;
-          <button id='temp-in-F' onClick={() => setUnit('F')}>
-            {unit === 'F' ? (
-              <span className='temp-selected'>F</span>
-            ) : (
-              <span>F</span>
-            )}
-          </button>
-        </p>
-        <div className='container3'>
+          <p className='temp-button'>
+            &deg;
+            <button id='temp-in-C' onClick={() => setUnit('C')}>
+              {unit === 'C' ? (
+                <span className='temp-selected'>C</span>
+              ) : (
+                <span>C</span>
+              )}
+            </button>{' '}
+            | &deg;
+            <button id='temp-in-F' onClick={() => setUnit('F')}>
+              {unit === 'F' ? (
+                <span className='temp-selected'>F</span>
+              ) : (
+                <span>F</span>
+              )}
+            </button>
+          </p>
+        </div>
+        <div className='container2b'>
           <p>Pressure: {weatherDay.main.pressure} hPa</p>
           <p>Humidity: {weatherDay.main.humidity}%</p>
           <p>Wind Speed: {weatherDay.wind.speed} m/s</p>

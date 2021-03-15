@@ -27,6 +27,7 @@ export const Card = ({
         >
           <p>{getDayName(weather.dt_txt)}</p>
           <img
+            className='card-img'
             src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
             alt='weather_icon'
           />
@@ -46,6 +47,7 @@ export const Card = ({
         >
           <p>{getDayName(weather.dt_txt)}</p>
           <img
+            className='card-img'
             src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
             alt='weather_icon'
           />

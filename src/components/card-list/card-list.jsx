@@ -1,6 +1,5 @@
 import './card-list.css'
 import { Card } from '../card/card'
-import React, { useState } from 'react'
 
 export const CardList = ({
   weatherData,

@@ -1,13 +1,8 @@
 .main-container {
   padding: 15px 20px;
   color: gray;
-}
-
-.container1,
-.container2,
-.container3 {
   line-height: 0.3;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .location {
@@ -17,6 +12,17 @@
 .container2 {
   display: flex;
   align-items: center;
+  /* border: red 1px solid; */
+  justify-content: space-around;
+}
+.container2a {
+  display: flex;
+  /* align-items: center; */
+  /* border: red 1px solid; */
+}
+.container2b {
+  /* align-items: center; */
+  /* border: red 1px solid; */
 }
 
 img {
@@ -45,4 +51,53 @@ img {
 }
 .temp-selected {
   text-decoration: underline;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+}
+@media (min-width: 481px) and (max-width: 767px) {
+}
+@media (max-width: 654px) {
+  .container2 {
+    flex-direction: column;
+  }
+  .container2a {
+    flex-direction: column;
+  }
+  .container2a p {
+    text-align: center;
+  }
+  .temperature {
+    font-size: 45px;
+  }
+  .temp-button {
+    color: gray;
+    font-size: 25px;
+    border: none;
+    text-align: center;
+    padding: 0;
+    background: #fff;
+    padding-bottom: 0px;
+    margin: 10px 0;
+  }
+}
+
+@media (min-width: 655px) and (max-width: 1186px) {
+  .container2 {
+    flex-direction: column;
+  }
+  .container2a {
+    flex-direction: row;
+  }
+  .temperature {
+    font-size: 55px;
+  }
+  .temp-button {
+    color: gray;
+    font-size: 25px;
+    border: none;
+    padding: 0;
+    background: #fff;
+    padding-bottom: 10px;
+  }
 }

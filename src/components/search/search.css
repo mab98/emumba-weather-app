@@ -1,6 +1,11 @@
+.search-container {
+  display: flex;
+}
+
 select {
-  box-sizing: border-box;
+  width: 100px;
   border: 1px solid rgb(193, 188, 188);
+  border-radius: 5% 0 0 5%;
   padding: 8px 5px;
   background: white;
 }
@@ -13,27 +18,47 @@ input {
   border: 1px solid rgb(193, 188, 188);
   line-height: 2.5;
   padding: 0 20px;
-  width: 400px;
+  width: 450px;
 }
 
 .submit-btn {
   cursor: pointer;
-  width: 75px;
+  border-radius: 0 5% 5% 0;
+  width: 100px;
   padding: 0 20px;
   background: #fff;
   line-height: 2.5;
   border: 1px solid rgb(193, 188, 188);
 }
 
-.search-container {
-  display: flex;
-  flex-wrap: wrap;
+option {
+  font-size: 18px;
 }
 
 @media only screen and (max-width: 480px) {
   input {
     width: 200px;
   }
+  .search-container {
+    flex-wrap: wrap;
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  input {
+    width: 200px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  input {
+    width: 250px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+  input {
+    width: 300px;
+  }
+}
+@media (max-width: 1260px) {
   .search-container {
     justify-content: center;
   }
