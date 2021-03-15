@@ -46,10 +46,6 @@ img {
   text-decoration: underline;
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
-}
-@media (min-width: 481px) and (max-width: 767px) {
-}
 @media (max-width: 654px) {
   .container2 {
     flex-direction: column;
@@ -64,14 +60,9 @@ img {
     font-size: 45px;
   }
   .temp-button {
-    color: gray;
-    font-size: 25px;
-    border: none;
     text-align: center;
-    padding: 0;
-    background: #fff;
+
     padding-bottom: 0px;
-    margin: 10px 0;
   }
 }
 
@@ -86,11 +77,6 @@ img {
     font-size: 55px;
   }
   .temp-button {
-    color: gray;
-    font-size: 25px;
-    border: none;
-    padding: 0;
-    background: #fff;
     padding-bottom: 10px;
   }
 }
