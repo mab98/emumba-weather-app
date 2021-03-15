@@ -1,0 +1,34 @@
+3e476e4566d14c0ea211850072dcb2d9
+
+`q=${city}&units=metric&appid=${key}`
+`zip=${zipCode}&units=metric&appid=${key}`
+`id=${id}&units=metric&appid=${key}`
+`lat={latitudes}&lon={longitudes}&units=metric&appid=${key}`
+
+
+City Name
+https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&appid=${key}
+
+Zip Code
+https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode}&units=metric&appid=${key}
+
+Geographic Coordinates
+https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&units=metric&appid=${key}
+
+ - user can view temprature both in centigrade and farenhite    
+ - user can switch between days to get detailed temprature of that day  
+ - each section of per day temprature show min max temprature of day  
+ - relavent images/icons will show the weather condition  
+ - area chart will show the complete temprature of a day with an interval of 3 hour  
+
+https://api.openweathermap.org/data/2.5/forecast?q=lahore&units=metric&appid=3e476e4566d14c0ea211850072dcb2d9
+https://api.openweathermap.org/data/2.5/forecast?zip=44000,pk&units=metric&appid=3e476e4566d14c0ea211850072dcb2d9
+https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&units=metric&appid=3e476e4566d14c0ea211850072dcb2d9
+https://api.openweathermap.org/data/2.5/forecast?id=524901&units=metric&appid=3e476e4566d14c0ea211850072dcb2d9
+
+@media only screen and (max-width: 480px) {}
+@media (min-width: 481px) and (max-width: 767px) {}
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {}
+@media (min-width: 768px) and (max-width: 1024px) {}
+@media (min-width: 1025px) and (max-width: 1280px) {}
+@media (min-width: 1281px) {}
